@@ -1,0 +1,51 @@
+# utils.py
+import random
+
+stories = {
+    "happy": [
+        "Once upon a time, in a joyful village, everyone smiled.",
+        "The sun was shining, the kids were playing, and laughter echoed.",
+        "He danced like nobody was watching, celebrating his little victory.",
+        "She got the job of her dreams, and tears of joy filled her eyes."
+    ],
+    "sad": [
+        "It was a gloomy day, and she missed her friend deeply.",
+        "He walked alone on the rainy street, memories haunting him.",
+        "The final goodbye hurt more than he had expected.",
+        "The diary held memories that brought tears every time."
+    ],
+    "angry": [
+        "He clenched his fists, trying to stay calm in the chaos.",
+        "The argument echoed in his head, fueling his frustration.",
+        "She slammed the door, tired of being misunderstood.",
+        "His patience finally broke after years of being ignored."
+    ],
+    "surprise": [
+        "Suddenly, fireworks lit up the sky — she couldn't believe her eyes.",
+        "He opened the box to find an unexpected gift from an old friend.",
+        "Out of nowhere, the crowd began to cheer just for her.",
+        "She was shocked to find her lost cat at the doorstep."
+    ],
+    "fear": [
+        "He heard footsteps in the dark alley and froze in place.",
+        "The thunder roared as she hid under her blanket.",
+        "Every creak in the old house sent chills down his spine.",
+        "She held her breath, hoping the danger would pass."
+    ],
+    "disgust": [
+        "The rotten smell made him gag instantly.",
+        "She turned away, unable to watch the gruesome scene.",
+        "The spoiled food looked far worse than it smelled.",
+        "He regretted clicking that gross video link instantly."
+    ],
+    "neutral": [
+        "The day went by like any other, uneventful and calm.",
+        "She sat at her desk, staring blankly at the screen.",
+        "Nothing unusual happened, and the hours passed slowly.",
+        "He sipped his coffee, watching the clouds drift by."
+    ]
+}
+
+def get_story_by_emotion(emotion):
+    emotion = emotion.strip().lower()  # Normalize emotion string
+    return random.choice(stories.get(emotion, ["No story found for this emotion."]))

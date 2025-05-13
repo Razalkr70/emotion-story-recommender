@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Emotion-Based Story Recommender</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Emotion-Based Story Recommender</h1>
+
+        <div class="video-container">
+            <img src="{{ url_for('video_feed') }}" id="videoFeed" />
+        </div>
+
+        <button onclick="getStory()">Detect Emotion & Get Story</button>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function getStory() {
+            fetch('/get_emotion_story')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('result').innerHTML =
+                        `<h3>Detected Emotion: ${data.emotion}</h3><p>${data.story}</p>`;
+                });
+        }
+    </script>
+</body>
+</html>
